@@ -24,17 +24,27 @@ namespace BagOLoot
 
                 switch (choice)
                 {
-                    // Menu option 1: Adding fish
+                    // Menu option 1: Adding child
                     case 1:
                         CreateChild.DoAction(book);
                         break;
 
-                    // Menu option 2: Removing fish
+                    // Menu option 2: Adding toy
                     case 2:
                         AddToy.DoAction(bag, book);
                         break;
+
+                    // Menu option 3: Removing toy
+                    case 3:
+                        RevokeToy.DoAction(bag, book);
+                        break;
+
+                    // Menu option 4: Review child's toy list
+                    case 4:
+                        KidsMenu.Show(book);
+                        break;
                 }
-            } while (choice != 3);
+            } while (choice <= 6);
         }
     }
 }

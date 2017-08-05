@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BagOLoot
 {
@@ -20,14 +22,20 @@ namespace BagOLoot
       return newToy;
     }
 
-    public void RevokeToy(Child kid, Toy toy)
-    {
-
+    public Toy RevokeToy( Toy toy) 
+    { 
+      _toys.Remove(toy);
+      return toy;
+     
     }
 
     public List<Toy> GetToysForChild(Child kid)
     {
-      return new List<Toy>();
+      var kidsToys = from toy in _toys
+                        where toy.child == kid
+                        select toy;
+
+        return kidsToys.ToList();
     }
   }
-}
+}  
